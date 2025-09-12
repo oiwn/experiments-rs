@@ -6,12 +6,12 @@ windows:
     start-directory: ./
     panes:
       - shell_command:
-        - nvim
-  - window_name: cmd
+        - helix
+  - window_name: agent
     start-directory: ./
     panes:
       - shell_command:
-        - exa
+        - claude
   - window_name: srv
     start-directory: ./
     panes:

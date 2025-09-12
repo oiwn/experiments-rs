@@ -1,6 +1,3 @@
 #+title: Notes
 
-* Useful articles
-** https://www.lpalmieri.com/posts/how-to-write-a-rest-client-in-rust-with-reqwest-and-wiremock/
-** https://github.com/actix/actix
-** https://crates.io/crates/tiny-tokio-actor
+* NTT friendly moduli generation
