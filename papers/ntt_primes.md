@@ -192,13 +192,35 @@ is prudent).
 
 ## Proposed Library Structure (Modules and Examples)
 
-| Module | Functionality | Example Usage |
-|--------|--------------|---------------|
-| random_ap_generator | Functions to generate primes by randomised search in the progression 1 + 2N · k. Includes optional pre-sieving, deterministic Miller–Rabin, and collection of multiple primes. | generate_primes(n=2048, bits=60, count=4) returns four 60-bit primes ≡ 1 (mod 4096). |
-| deterministic_search | Functions to search downward (or upward) from 2^B in steps of 2N for primes. Accepts bit size, ring dimension and number of primes. | largest_primes(n=4096, bits=61, levels=3) returns the three largest 61-bit primes satisfying q ≡ 1 (mod 8192). |
-| proth_generator | Functions implementing the Proth test: given m and bit length, it picks random k < 2^m, forms q = k · 2^m + 1 and applies the Proth primality test. Returns prime if successful. | proth_prime(m=20, bits=59) returns a 59-bit Proth prime supporting NTTs up to 2^m. |
-| pocklington_generator | Functions to generate primes by partial factorisation of q − 1 and Pocklington–Lévy certification. Useful when k might be large. | pocklington_prime(n=2048, bits=58) returns a 58-bit proven prime ≡ 1 (mod 4096). |
-| structured_prime | Functions to search for pseudo-Mersenne or Goldilocks-type primes that satisfy q ≡ 1 (mod 2N). Includes hard-coded options like p = 2^64 − 2^32 + 1 and search routines for 2^B − c. | goldilocks_prime() returns the 64-bit Goldilocks prime; search_pseudo_mersenne(n=1024, bits=60) finds a 60-bit prime of the form 2^60 − c congruent to 1 mod 2048. |
+**random_ap_generator**
+Functions to generate primes by randomised search in the progression 1 + 2N ·
+k. Includes optional pre-sieving, deterministic Miller–Rabin, and collection of
+multiple primes. generate_primes(n=2048, bits=60, count=4) returns four 60-bit
+primes ≡ 1 (mod 4096).
+
+**deterministic_search**
+Functions to search downward (or upward) from 2^B in steps of 2N for primes.
+Accepts bit size, ring dimension and number of primes. largest_primes(n=4096,
+bits=61, levels=3) returns the three largest 61-bit primes satisfying q ≡ 1 (mod
+8192).
+
+**proth_generator**
+Functions implementing the Proth test: given m and bit length, it picks random
+k < 2^m, forms q = k · 2^m + 1 and applies the Proth primality test. Returns
+prime if successful. proth_prime(m=20, bits=59) returns a 59-bit Proth prime
+supporting NTTs up to 2^m.
+
+**pocklington_generator**
+Functions to generate primes by partial factorisation of q − 1 and
+Pocklington–Lévy certification. Useful when k might be large.
+pocklington_prime(n=2048, bits=58) returns a 58-bit proven prime ≡ 1 (mod 4096).
+
+**structured_prime**
+Functions to search for pseudo-Mersenne or Goldilocks-type primes that satisfy
+q ≡ 1 (mod 2N). Includes hard-coded options like p = 2^64 − 2^32 + 1 and search
+routines for 2^B − c. goldilocks_prime() returns the 64-bit Goldilocks prime;
+search_pseudo_mersenne(n=1024, bits=60) finds a 60-bit prime of the form 2^60 −
+c congruent to 1 mod 2048.
 
 Each module should also include helper functions to compute primitive 2N-th and
 N-th roots of unity. For a given prime q, one can find a primitive root g in
